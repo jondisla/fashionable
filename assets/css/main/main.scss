@@ -1,0 +1,115 @@
+@import "../scale";
+@import url("https://fonts.googleapis.com/css?family=Poppins:400|Poppins:500|Poppins:600|Poppins:700");
+
+body {
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+#container {
+  //   border: 1px solid red;
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
+  nav {
+    padding: 30px 0;
+    display: grid;
+    grid-template-columns: 2fr 6fr 4fr;
+    gap: 70px;
+    align-items: center;
+    #logo {
+      font-weight: 700;
+      font-size: 30px;
+      width: 100px;
+    }
+    #search {
+      input {
+        width: 100%;
+        height: 30px;
+        border-radius: 5px;
+      }
+    }
+    ul {
+      justify-self: end;
+      li {
+        display: inline-block;
+        padding: 0 10px 0 0;
+      }
+    }
+  }
+  .main_banner {
+    // border: 2px solid blue;
+    background-color: rgb(188, 112, 213);
+    border-radius: 20px;
+    width: 100%;
+    height: 300px;
+  }
+  #content {
+    // padding: 0 20px;
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    gap: 20px;
+
+    aside {
+      min-width: 200px;
+      max-width: 200px;
+      ul {
+        padding: 0;
+        li {
+          text-transform: uppercase;
+          font-weight: 600;
+          list-style-type: none;
+          background: rgb(247, 247, 247);
+          padding: 20px;
+          margin: 20px 0;
+          border-radius: 10px;
+          &:active {
+            background: rgb(188, 112, 213);
+          }
+        }
+      }
+    }
+    #main_content {
+      grid-row: 1;
+      grid-column: 2;
+    }
+    .page_content {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      .category_title {
+        grid-column: 1/8;
+        h1 {
+          font-weight: 700;
+        }
+      }
+      #view_more {
+        grid-row: 2;
+        grid-column: 1/8;
+        padding: 0 0 20px 0;
+      }
+      .cat_btns {
+        font-size: 12px;
+        border: 1px solid rgb(228, 228, 228);
+        border-radius: 10px;
+        margin: 0 20px 40px 0;
+        padding: 20px;
+        min-width: 120px;
+        text-align: center;
+        font-weight: 600;
+        &:hover {
+          cursor: pointer;
+          background: rgb(188, 112, 213);
+          color: white;
+        }
+      }
+    }
+    .preview_img {
+      min-width: 250px;
+      max-width: 250px;
+      // max-height: 500px;
+      min-height: 300px;
+      border-radius: 10px;
+      background-color: rgb(247, 247, 247);
+    }
+  }
+}
