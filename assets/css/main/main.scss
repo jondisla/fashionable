@@ -65,9 +65,15 @@ body {
           padding: 20px;
           margin: 20px 0;
           border-radius: 10px;
-          &:active {
-            background: rgb(188, 112, 213);
+          &:hover {
+            cursor: pointer;
+            background-color: rgb(188, 112, 213);
+            color: white;
           }
+        }
+        .active {
+          background: rgb(188, 112, 213);
+          color: white;
         }
       }
     }
@@ -89,29 +95,50 @@ body {
         grid-column: 1/8;
         padding: 0 0 20px 0;
       }
-      .cat_btns {
-        font-size: 12px;
-        border: 1px solid rgb(228, 228, 228);
-        border-radius: 10px;
-        margin: 0 20px 40px 0;
-        padding: 20px;
-        min-width: 120px;
-        text-align: center;
-        font-weight: 600;
-        &:hover {
-          cursor: pointer;
-          background: rgb(188, 112, 213);
-          color: white;
+      #categories {
+        // border: 1px solid blue;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-column: 3/4;
+        grid-row: 3;
+        width: 1000px;
+        .cat_btns {
+          font-size: 12px;
+          border: 1px solid rgb(228, 228, 228);
+          border-radius: 10px;
+          margin: 0 20px 40px 0;
+          padding: 20px;
+          // width: 100%;
+          text-align: center;
+          font-weight: 600;
+          &:hover {
+            cursor: pointer;
+            background: rgb(188, 112, 213);
+            color: white;
+          }
         }
       }
     }
-    #product_preview {
-      min-width: 250px;
-      max-width: 250px;
-      // max-height: 500px;
-      min-height: 300px;
-      border-radius: 10px;
-      background-color: rgb(247, 247, 247);
+    #main_content {
+      width: 100%;
+      #load_text {
+        grid-column: 1/4;
+        justify-self: center;
+        display: none;
+      }
+      #products {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        .product_preview {
+          min-width: 250px;
+          max-width: 250px;
+          // max-height: 500px;
+          min-height: 300px;
+          border-radius: 10px;
+          background-color: rgb(247, 247, 247);
+        }
+      }
     }
   }
 }

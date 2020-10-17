@@ -2,12 +2,19 @@ import {API_KEY} from './config.js';
 
 window.onload = function() {
 
+    //get IDs
     let womensBtn = document.getElementById('womensBtn');
+    let load_txt = document.getElementById('load_text');
 
     //Triger Functions on Category btns
-    womensBtn.addEventListener('click', loadWomens)    
+    womensBtn.addEventListener('click', loadWomens);
+
 
 function loadWomens(){
+
+    womensBtn.classList.add('active');
+    load_text.style.cssText = "display:block;z-index:0;position:absolute"
+
     fetch("https://rapidapi.p.rapidapi.com/products/list?category=women-new-arrivals&page=1&pagesize=20", {
 	"method": "GET",
 	"headers": {
@@ -20,12 +27,34 @@ function loadWomens(){
     console.log(response);
     
     //get ids
-    let pro_pre = document.getElementById('product_preview')
+    let pro_pre = document.getElementById('products');
 
+    for (let k in response.CatalogProducts){
+        let productName = response.CatalogProducts[k].DisplayName;
 
-    let product_img = response.response.docs[0].thumb_image;
-    pro_pre.innerHTML = `<img src = ${product_img}>`;
+        let productImg = response.CatalogProducts[k].ImageFilename;
+        ///////////////////////////////
+        // let prev_img = document.createElement('img');
+        // prev_img.append(productImg)
+        // ///////////////////////////////
+        // let prev = document.createElement('div')
+        // prev.classList.add('product_preview')
+        // prev.append(productName)
+
+        // pro_pre.append(prev)
+
+        pro_pre.innerHTML+= `
+        <div class="product_wrap">
+            <div class="product_preview"><img src="https://www.forever21.com/images/default_330/${productImg}"></div>
+            <div>${productName}</div>
+        </div>    
+        `
+    }
+    womensBtn.removeEventListener('click', loadWomens);
+    load_text.style.cssText = 'display:none;'
+    
     })
+
     .catch(err => {
         console.error(err);
     });
@@ -33,14 +62,7 @@ function loadWomens(){
 
 
 
-
-
-
 }
-
-
-
-
 
 
 /////////////////////Categories////////////////
