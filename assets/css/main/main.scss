@@ -129,7 +129,7 @@ body {
       #products {
         display: grid;
         gap: 20px;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         .product_preview {
           min-width: 250px;
           max-width: 250px;
