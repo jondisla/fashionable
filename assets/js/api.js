@@ -40,23 +40,31 @@ function loadWomens(){
     //get ids
     let pro_pre = document.getElementById('products');
 
+    //create wrapper
+    let wrapper = document.createElement('div');
+    wrapper.id = 'w_prod';
+    pro_pre.appendChild(wrapper);
+
     for (let k in response.CatalogProducts){
         let productName = response.CatalogProducts[k].DisplayName;
 
         let productImg = response.CatalogProducts[k].ImageFilename;
 
-        pro_pre.innerHTML+= `
+        
+
+        wrapper.innerHTML+= `
         <div class="product_wrap">
             <div class="product_preview"><img src="https://www.forever21.com/images/default_330/${productImg}"></div>
             <div>${productName}</div>
-        </div>    
+        </div>
         `
     }
     mensBtn.addEventListener('click', loadMens);
     womensBtn.removeEventListener('click', loadWomens);
     load_text.style.cssText = 'display:none;'
-    let test = document.getElementsByClassName('product_wrap');
-    test.style.cssText = 'display:none;'
+
+    let m_prod = document.getElementById('m_prod');
+    m_prod.style.cssText = 'display:none;'
 
     
     })
@@ -86,24 +94,29 @@ function loadMens(){
     //get ids
     let pro_pre = document.getElementById('products');
 
+    //create wrapper
+    let wrapper = document.createElement('div');
+    wrapper.id = 'm_prod';
+    pro_pre.appendChild(wrapper);
+
     for (let k in response.CatalogProducts){
         let productName = response.CatalogProducts[k].DisplayName;
 
         let productImg = response.CatalogProducts[k].ImageFilename;
 
-        pro_pre.innerHTML+= `
+        wrapper.innerHTML+= `
         <div class="product_wrap">
             <div class="product_preview"><img src="https://www.forever21.com/images/default_330/${productImg}"></div>
             <div>${productName}</div>
-        </div>    
+        </div>
         `
     }
     womensBtn.addEventListener('click', loadWomens);
     mensBtn.removeEventListener('click', loadMens);
     load_text.style.cssText = 'display:none;'
 
-    let products = document.getElementById('products')
-    prodcuts.style.cssText = 'display:none;'
+    let w_wrapper = document.getElementById('w_prod')
+    w_wrapper.style.cssText = 'display:none;'
     
     })
 

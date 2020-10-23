@@ -168,7 +168,8 @@ body {
   display: none;
 }
 
-#container #content #main_content #products {
+#container #content #main_content #w_prod,
+#container #content #main_content #m_prod {
   display: -ms-grid;
   display: grid;
   gap: 20px;
@@ -176,7 +177,8 @@ body {
       grid-template-columns: 1fr 1fr 1fr;
 }
 
-#container #content #main_content #products .product_preview {
+#container #content #main_content #w_prod .product_preview,
+#container #content #main_content #m_prod .product_preview {
   min-width: 250px;
   max-width: 250px;
   min-height: 300px;
